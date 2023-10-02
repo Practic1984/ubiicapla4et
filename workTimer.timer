@@ -1,0 +1,12 @@
+ # /etc/systemd/system/project-worker.timer
+
+[Unit]
+Description=Run project-worker every 2 seconds
+Requires=server1.service
+
+[Timer]
+Unit=server1.service
+OnCalendar=*:*:0/2
+
+[Install]
+WantedBy=timers.target
